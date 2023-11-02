@@ -5,3 +5,19 @@
 
 
 /* Add your custom styles here */
+.custom-primary{
+    background-color: rgb(10, 123, 123) !important;
+}
+.custom-secondary{
+    background-color: lightsalmon !important;
+}
+.custom-primary-text{
+    color: #f1f1f1;
+}
+
+.w-full{
+    width: 100%;
+}
+.list-none{
+    list-style: none;
+}

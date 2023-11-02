@@ -1,32 +1,16 @@
 <template>
     <div class="hello">
-        <h1>{{ msg }}</h1>
-        <button class="btn btn-primary">AAAA</button>
-
-
-        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-            aria-controls="offcanvasExample">
-            Link with href
-        </a>
-
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample">
-            Button with data-bs-target
-        </button>
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <!-- <p>{{ dataObject }}</p> -->
+        <p>Time Zone: {{ dataObject.location?.tz_id }}</p>
+        <p>Local Time: {{ dataObject.location?.localtime }}</p>
+        <div class="card">
+            <div>
+                <img alt="cloud" :src="dataObject.current?.condition.icon"/>
             </div>
-            <div class="offcanvas-body">
-                <div>
-                    Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images,
-                    lists, etc.
-                </div>
-            </div>
+            <p>Condition: {{ dataObject.current?.condition.text }}</p>
+            <p>Temperature (C): {{ dataObject.current?.temp_c }} </p>
+            <p>Temperature (F): {{ dataObject.current?.temp_f }}</p>
         </div>
-
     </div>
 </template>  
 <script>
@@ -34,8 +18,9 @@
 export default {
     name: 'WeatherView',
     props: {
-        msg: String
-    }
+        msg: String,
+        dataObject: Object
+    },
 }
 </script>
   
